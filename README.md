@@ -1,6 +1,9 @@
 Jazz Hands [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nixme/jazz_hands/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 ==========
 
+> This is a forked version with pry-byebug, instead of pry-debugger
+
+
 Spending hours in the rails console? Spruce it up and show off those
 hard-working hands!
 
@@ -16,16 +19,16 @@ hard-working hands!
 * [**Pry Git**][pry-git] to teach the console about git. Diffs, blames, and
   commits on methods and classes, not just files.
 * [**Pry Remote**][pry-remote] to connect remotely to a Pry console.
-* [**Pry Debugger**][pry-debugger] to turn the console into a simple debugger.
+* [**Pry Byebug**][pry-byebug] to turn the console into a simple debugger.
 * [**Pry Stack Explorer**][pry-stack_explorer] to navigate the call stack and
   frames.
-* [**Coolline**][coolline] and [**Coderay**][coderay] for syntax highlighting as
-  you type. _Optional. MRI 1.9.3/2.0.0 only_
+* [**Pry-Coolline**][coolline] and [**Coderay**][coderay] for syntax highlighting as
+  you type. _Optional.
 
 
 ## Usage
 
-Ruby 1.9.2+, Rails 3 or 4 only. Add to your project Gemfile:
+Ruby 2.0+, Rails 3 or 4 only. Add to your project Gemfile:
 
 ```ruby
 group :development, :test do
@@ -89,10 +92,11 @@ file an [issue][issues]. [Project changelog][changelog].
 [pry-rails]:          https://github.com/rweng/pry-rails
 [pry-doc]:            https://github.com/pry/pry-doc
 [pry-git]:            https://github.com/pry/pry-git
-[pry-debugger]:       https://github.com/nixme/pry-debugger
+[pry-byebug]:         https://github.com/teeparham/pry-byebug
 [pry-remote]:         https://github.com/Mon-Ouie/pry-remote
 [pry-stack_explorer]: https://github.com/pry/pry-stack_explorer
 [coolline]:           https://github.com/Mon-Ouie/coolline
+[pry-coolline]:           https://github.com/pry/pry-coolline
 [coderay]:            https://github.com/rubychan/coderay
 [rb-readline]:        https://github.com/luislavena/rb-readline
 [pullrequests]:       https://github.com/nixme/jazz_hands/pulls
