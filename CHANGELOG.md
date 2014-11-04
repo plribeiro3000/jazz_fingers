@@ -1,4 +1,4 @@
-## UNRELEASED
+## 0.5.3 (2014-11-04)
 
 * Using [pry-byebug][pry-byebug] to use ruby >= 2.0.0.
 * Switched [coolline][coolline] with [pry-coolline][pry-coolline]
