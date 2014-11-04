@@ -1,7 +1,8 @@
 ## UNRELEASED
 
-* Remove [pry-debugger][pry-debugger] to let people explicitly pick their
-  debugging tool of choice.
+* Using [pry-byebug][pry-byebug] to use jazz_hands with ruby >= 2.0.0.
+* Switched [coolline][coolline] with [pry-coolline][pry-coolline]
+* Upgrade [pry][pry] to 0.10, [pry-doc][pry-doc] to 0.6
 
 ## 0.5.2 (2013-10-24)
 
@@ -121,8 +122,10 @@
 [pry-nav]:            https://github.com/nixme/pry-nav
 [pry-remote]:         https://github.com/Mon-Ouie/pry-remote
 [coolline]:           https://github.com/Mon-Ouie/coolline
+[pry-cooline]:        https://github.com/pry/pry-coolline
 [coderay]:            https://github.com/rubychan/coderay
 [hirb]:               https://github.com/cldwalker/hirb
 [pry-stack_explorer]: https://github.com/pry/pry-stack_explorer
 [pry-debugger]:       https://github.com/nixme/pry-debugger
 [pry-rails]:          https://github.com/rweng/pry-rails
+[pry-byebug]:         https://github.com/deivid-rodriguez/pry-byebug
