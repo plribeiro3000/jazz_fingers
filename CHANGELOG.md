@@ -1,8 +1,9 @@
 ## UNRELEASED
 
-* Using [pry-byebug][pry-byebug] to use jazz_hands with ruby >= 2.0.0.
+* Using [pry-byebug][pry-byebug] to use ruby >= 2.0.0.
 * Switched [coolline][coolline] with [pry-coolline][pry-coolline]
 * Upgrade [pry][pry] to 0.10, [pry-doc][pry-doc] to 0.6
+* Rename to `JazzFingers` to allow releasing.
 
 ## 0.5.2 (2013-10-24)
 

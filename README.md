@@ -1,10 +1,10 @@
-Jazz Hands [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nixme/jazz_hands/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-==========
+Jazz Fingers
+============
 
 Spending hours in the rails console? Spruce it up and show off those
 hard-working hands!
 
-**jazz_hands** is an opinionated set of console-related gems and a bit of glue:
+**jazz_fingers** is an opinionated set of console-related gems and a bit of glue:
 
 * [**Pry**][pry] for a powerful shell alternative to IRB.
 * [**Awesome Print**][awesome_print] for stylish pretty print.
@@ -28,7 +28,7 @@ Ruby 1.9.2+, Rails 3 or 4 only. Add to your project Gemfile:
 
 ```ruby
 group :development, :test do
-  gem 'jazz_hands'
+  gem 'jazz_fingers'
 end
 ```
 
@@ -45,12 +45,12 @@ X) will work but is not recommended.
 ## Options
 
 Change the following options by creating an initializer in your Rails project
-Example `config/initializers/jazz_hands.rb`:
+Example `config/initializers/jazz_fingers.rb`:
 
 ```ruby
-if defined?(JazzHands)
-  JazzHands.colored_prompt = false
-  JazzHands.enable_syntax_highlighting_as_you_type!
+if defined?(JazzFingers)
+  JazzFingers.colored_prompt = false
+  JazzFingers.enable_syntax_highlighting_as_you_type!
 end
 ```
 
@@ -72,7 +72,7 @@ mixed encodings.
 
 Syntax highlighting as you type via [Coolline][coolline] and [Coderay][coderay]
 is disabled by default due to slightly buggy behavior. To enable, add
-`JazzHands.enable_syntax_highlighting_as_you_type!` to the initializer. Only
+`JazzFingers.enable_syntax_highlighting_as_you_type!` to the initializer. Only
 works with MRI 1.9.3 or 2.0.0.
 
 
@@ -93,6 +93,6 @@ file an [issue][issues]. [Project changelog][changelog].
 [coolline]:           https://github.com/Mon-Ouie/coolline
 [coderay]:            https://github.com/rubychan/coderay
 [rb-readline]:        https://github.com/luislavena/rb-readline
-[pullrequests]:       https://github.com/nixme/jazz_hands/pulls
-[issues]:             https://github.com/nixme/jazz_hands/issues
-[changelog]:          https://github.com/nixme/jazz_hands/blob/master/CHANGELOG.md
+[pullrequests]:       https://github.com/plribeiro3000/jazz_fingers/pulls
+[issues]:             https://github.com/plribeiro3000/jazz_fingers/issues
+[changelog]:          https://github.com/plribeiro3000/jazz_fingers/blob/master/CHANGELOG.md
