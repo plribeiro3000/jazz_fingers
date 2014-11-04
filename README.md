@@ -1,6 +1,8 @@
 Jazz Fingers
 ============
 
+This repo is a fork, with updates and bug fixes based on [`jazz_hands`](https://github.com/nixme/jazz_hands).
+
 Spending hours in the rails console? Spruce it up and show off those
 hard-working hands!
 
