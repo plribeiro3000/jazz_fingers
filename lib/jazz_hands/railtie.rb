@@ -20,7 +20,7 @@ module JazzHands
         Pry.config.print = ->(output, value, _pry_) do
           return if JazzHands._hirb_output && Hirb::View.view_or_page_output(value)
           pretty = value.ai(indent: 2)
-          Pry::Helpers::BaseHelpers.stagger_output("=> #{pretty}", output)
+          _pry_.pager.page("=> #{pretty}")
         end
 
         # Friendlier prompt - line number, app name, nesting levels look like
