@@ -5,12 +5,11 @@ require 'pry-git'
 require 'pry-remote'
 require 'pry-stack_explorer'
 require 'awesome_print'
-require 'jazz_hands/hirb_ext'
+require 'jazz_fingers/hirb_ext'
 
-
-module JazzHands
+module JazzFingers
   class Railtie < Rails::Railtie
-    initializer 'jazz_hands.initialize' do |app|
+    initializer 'jazz_fingers.initialize' do |app|
       silence_warnings do
         # We're managing the loading of plugins. So don't let pry autoload them.
         Pry.config.should_load_plugins = false
@@ -18,7 +17,7 @@ module JazzHands
         # Use awesome_print for output, but keep pry's pager. If Hirb is
         # enabled, try printing with it first.
         Pry.config.print = ->(output, value, _pry_) do
-          return if JazzHands._hirb_output && Hirb::View.view_or_page_output(value)
+          return if JazzFingers._hirb_output && Hirb::View.view_or_page_output(value)
           pretty = value.ai(indent: 2)
           _pry_.pager.page("=> #{pretty}")
         end
@@ -33,12 +32,12 @@ module JazzHands
         # libraries (GNU, rb-readline) correctly ignore color codes when
         # calculating line length.
 
-        color = -> { Pry.color && JazzHands.colored_prompt }
+        color = -> { Pry.color && JazzFingers.colored_prompt }
         red  = ->(text) { color[] ? "\001\e[0;31m\002#{text}\001\e[0m\002" : text.to_s }
         blue = ->(text) { color[] ? "\001\e[0;34m\002#{text}\001\e[0m\002" : text.to_s }
         bold = ->(text) { color[] ? "\001\e[1m\002#{text}\001\e[0m\002"    : text.to_s }
 
-        separator = -> { red.(JazzHands.prompt_separator) }
+        separator = -> { red.(JazzFingers.prompt_separator) }
         name = app.class.parent_name.underscore
         colored_name = -> { blue.(name) }
 

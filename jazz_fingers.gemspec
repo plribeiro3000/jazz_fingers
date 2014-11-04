@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
 
-require File.expand_path('../lib/jazz_hands/version', __FILE__)
+require File.expand_path('../lib/jazz_fingers/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = 'jazz_hands'
-  gem.version       = JazzHands::VERSION
-  gem.author        = 'Gopal Patel'
-  gem.email         = 'nixme@stillhope.com'
+  gem.name          = 'jazz_fingers'
+  gem.version       = JazzFingers::VERSION
+  gem.author        = 'Paulo Henrique Lopes Ribeiro'
+  gem.email         = 'plribeiro3000@gmail.com'
   gem.license       = 'MIT'
-  gem.homepage      = 'https://github.com/nixme/jazz_hands'
+  gem.homepage      = 'https://github.com/plribeiro3000/jazz_fingers'
   gem.summary       = 'Exercise those fingers. Pry-based enhancements for the default Rails console.'
   gem.description   = "Spending hours in the rails console? Spruce it up and show off those hard-working hands! jazz_hands replaces IRB with Pry, improves output through awesome_print, and has some other goodies up its sleeves."
 
