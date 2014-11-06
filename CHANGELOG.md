@@ -1,3 +1,7 @@
+## Unreleased
+
+* Remove [pry-stack_explorer][pry-stack_explorer]
+
 ## 0.5.3 (2014-11-04)
 
 * Using [pry-byebug][pry-byebug] to use ruby >= 2.0.0.
@@ -123,7 +127,7 @@
 [pry-nav]:            https://github.com/nixme/pry-nav
 [pry-remote]:         https://github.com/Mon-Ouie/pry-remote
 [coolline]:           https://github.com/Mon-Ouie/coolline
-[pry-cooline]:        https://github.com/pry/pry-coolline
+[pry-coolline]:        https://github.com/pry/pry-coolline
 [coderay]:            https://github.com/rubychan/coderay
 [hirb]:               https://github.com/cldwalker/hirb
 [pry-stack_explorer]: https://github.com/pry/pry-stack_explorer
