@@ -18,10 +18,7 @@ hard-working hands!
 * [**Pry Git**][pry-git] to teach the console about git. Diffs, blames, and
   commits on methods and classes, not just files.
 * [**Pry Remote**][pry-remote] to connect remotely to a Pry console.
-* [**Pry Stack Explorer**][pry-stack_explorer] to navigate the call stack and
-  frames.
-* [**Coolline**][coolline] and [**Coderay**][coderay] for syntax highlighting as
-  you type. _Optional. MRI 1.9.3/2.0.0 only_
+* [**Pry Coolline**][pry-coolline] for syntax highlighting as you type.
 
 
 ## Usage
@@ -91,8 +88,7 @@ file an [issue][issues]. [Project changelog][changelog].
 [pry-doc]:            https://github.com/pry/pry-doc
 [pry-git]:            https://github.com/pry/pry-git
 [pry-remote]:         https://github.com/Mon-Ouie/pry-remote
-[pry-stack_explorer]: https://github.com/pry/pry-stack_explorer
-[coolline]:           https://github.com/Mon-Ouie/coolline
+[pry-coolline]:       https://github.com/pry/pry-coolline
 [coderay]:            https://github.com/rubychan/coderay
 [rb-readline]:        https://github.com/luislavena/rb-readline
 [pullrequests]:       https://github.com/plribeiro3000/jazz_fingers/pulls
