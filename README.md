@@ -23,7 +23,7 @@ hard-working hands!
 
 ## Usage
 
-Ruby 1.9.2+, Rails 3 or 4 only. Add to your project Gemfile:
+Ruby 2.0.0+, Rails 3 or 4 only. Add to your project Gemfile:
 
 ```ruby
 group :development, :test do
@@ -49,7 +49,6 @@ Example `config/initializers/jazz_fingers.rb`:
 ```ruby
 if defined?(JazzFingers)
   JazzFingers.colored_prompt = false
-  JazzFingers.enable_syntax_highlighting_as_you_type!
 end
 ```
 
@@ -66,14 +65,6 @@ Note: `Pry.color = false` trumps this setting and disables all console coloring.
 Separator string between the application name and line input. Defaults to `»`
 for GNU readline or libedit. Defaults to `>` for `rb-readline` which fails on
 mixed encodings.
-
-### Syntax highlighting
-
-Syntax highlighting as you type via [Coolline][coolline] and [Coderay][coderay]
-is disabled by default due to slightly buggy behavior. To enable, add
-`JazzFingers.enable_syntax_highlighting_as_you_type!` to the initializer. Only
-works with MRI 1.9.3 or 2.0.0.
-
 
 ## Contributing
 
