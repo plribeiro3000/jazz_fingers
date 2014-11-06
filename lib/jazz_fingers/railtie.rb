@@ -1,10 +1,11 @@
+require 'awesome_print'
 require 'pry'
-require 'pry-rails'
+require 'pry-coolline'
 require 'pry-doc'
 require 'pry-git'
+require 'pry-rails'
 require 'pry-remote'
 require 'pry-stack_explorer'
-require 'awesome_print'
 require 'jazz_fingers/hirb_ext'
 
 module JazzFingers
@@ -16,7 +17,7 @@ module JazzFingers
 
         # Use awesome_print for output, but keep pry's pager. If Hirb is
         # enabled, try printing with it first.
-        Pry.config.print = ->(output, value, _pry_) do
+        Pry.config.print = ->(_output, value, _pry_) do
           return if JazzFingers._hirb_output && Hirb::View.view_or_page_output(value)
           pretty = value.ai(indent: 2)
           _pry_.pager.page("=> #{pretty}")
