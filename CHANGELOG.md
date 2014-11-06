@@ -1,4 +1,4 @@
-## Unreleased
+## 0.5.4 (2014-11-06)
 
 * Remove [pry-stack_explorer][pry-stack_explorer]
 
