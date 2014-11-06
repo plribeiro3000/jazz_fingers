@@ -5,7 +5,6 @@ require 'pry-doc'
 require 'pry-git'
 require 'pry-rails'
 require 'pry-remote'
-require 'pry-stack_explorer'
 require 'jazz_fingers/hirb_ext'
 
 module JazzFingers
