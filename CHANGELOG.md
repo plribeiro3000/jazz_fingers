@@ -1,3 +1,6 @@
+## Unreleased
+
+* Update [pry-byebug][pry-byebug] to v2.0.0
 ## 0.5.4 (2014-11-06)
 
 * Remove [pry-stack_explorer][pry-stack_explorer]
