@@ -1,4 +1,4 @@
-## Unreleased
+## 0.5.5 (2015-02-03)
 
 * Update [pry-byebug][pry-byebug] to v2.0.0
 * Update [awesome-print][awesome-print] to v1.6.1
