@@ -1,3 +1,8 @@
+## Unreleased
+
+* Update [pry-byebug][pry-byebug] to v2.0.0
+* Update [awesome-print][awesome-print] to v1.6.1
+
 ## 0.5.4 (2014-11-06)
 
 * Remove [pry-stack_explorer][pry-stack_explorer]
