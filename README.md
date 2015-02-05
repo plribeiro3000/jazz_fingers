@@ -66,11 +66,6 @@ Separator string between the application name and line input. Defaults to `»`
 for GNU readline or libedit. Defaults to `>` for `rb-readline` which fails on
 mixed encodings.
 
-## Contributing
-
-Patches and bug reports are welcome. Just send a [pull request][pullrequests] or
-file an [issue][issues]. [Project changelog][changelog].
-
 
 [pry]:                http://pry.github.com
 [awesome_print]:      https://github.com/michaeldv/awesome_print
