@@ -1,7 +1,10 @@
+## 1.0.0 (2015-02-05)
+* Downgrade [pry-byebug][pry-byebug] to v1.3.3
+
 ## 0.5.5 (2015-02-03)
 
 * Update [pry-byebug][pry-byebug] to v2.0.0
-* Update [awesome-print][awesome-print] to v1.6.1
+* Update [awesome_print][awesome_print] to v1.6.1
 
 ## 0.5.4 (2014-11-06)
 
