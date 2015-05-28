@@ -1,16 +1,16 @@
-require 'jazz_fingers/version'
-require 'readline'
-require 'awesome_print'
-require 'pry'
-require 'pry-coolline'
-require 'pry-doc'
-require 'pry-git'
-require 'pry-remote'
-require 'jazz_fingers/hirb_ext'
+require "jazz_fingers/version"
+require "readline"
+require "awesome_print"
+require "pry"
+require "pry-coolline"
+require "pry-doc"
+require "pry-git"
+require "pry-remote"
+require "jazz_fingers/hirb_ext"
 
 module JazzFingers
-  autoload :Print, 'jazz_fingers/print'
-  autoload :Prompt, 'jazz_fingers/prompt'
+  autoload :Print, "jazz_fingers/print"
+  autoload :Prompt, "jazz_fingers/prompt"
 
   def self.print
     @print ||= Print.config
@@ -36,8 +36,8 @@ module JazzFingers
     @colored_prompt ||= Readline::VERSION !~ /EditLine/
   end
 
-  def self.colored_prompt=(colored_prompt)
-    @colored_prompt = colored_prompt
+  class << self
+    attr_writer :colored_prompt
   end
 
   # Separator between application name and input in the prompt.
@@ -46,21 +46,21 @@ module JazzFingers
   # handle mixed encodings well.
   #
   def self.prompt_separator
-    @prompt_separator ||= defined?(RbReadline) ? '>' : "\u00BB"
+    @prompt_separator ||= defined?(RbReadline) ? ">" : "\u00BB"
   end
 
-  def self.prompt_separator=(prompt_separator)
-    @prompt_separator = prompt_separator
+  class << self
+    attr_writer :prompt_separator
   end
 
   ### Internal methods ###
 
-  def self._hirb_output
-    @_hirb_output
+  class << self
+    attr_reader :_hirb_output
   end
 
-  def self._hirb_output=(_hirb_output)
-    @_hirb_output = _hirb_output
+  class << self
+    attr_writer :_hirb_output
   end
 end
 

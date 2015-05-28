@@ -17,44 +17,44 @@ module JazzFingers
     end
 
     def self.separator
-      -> { red.(JazzFingers.prompt_separator) }
+      -> { red.call(JazzFingers.prompt_separator) }
     end
 
     def self.colored_name
       name = app.class.parent_name.underscore
-      -> { blue.(name) }
+      -> { blue.call(name) }
     end
 
     def self.line
-      ->(pry) { "[#{bold.(pry.input_array.size)}] " }
+      ->(pry) { "[#{bold.call(pry.input_array.size)}] " }
     end
 
     def self.target_string
-      ->(object, level) do
+      lambda do |object, level|
         level = 0 if level < 0
         string = Pry.view_clip(object)
-        if string == 'main'
-          ''
+        if string == "main"
+          ""
         else
           "(#{'../' * level}#{string})"
         end
       end
     end
-    
+
     def self.main_prompt
-      ->(object, level, pry) do
-        "#{line.(pry)}#{colored_name.()}#{target_string.(object, level)} #{separator.()}  "
+      lambda do |object, level, pry|
+        "#{line.call(pry)}#{colored_name.call}#{target_string.call(object, level)} #{separator.call}  "
       end
     end
-    
+
     def self.wait_prompt
-      ->(object, level, pry) do
-        spaces = ' ' * (
+      lambda do |object, level, pry|
+        spaces = " " * (
         "[#{pry.input_array.size}] ".size +
           name.size +
-          target_string.(object, level).size
+          target_string.call(object, level).size
         )
-        "#{spaces} #{separator.()}  "
+        "#{spaces} #{separator.call}  "
       end
     end
 

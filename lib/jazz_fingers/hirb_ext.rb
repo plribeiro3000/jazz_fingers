@@ -1,5 +1,5 @@
-require 'hirb'
-require 'pry'
+require "hirb"
+require "pry"
 
 class << Hirb::View
   alias_method :enable_output_method_existing, :enable_output_method
