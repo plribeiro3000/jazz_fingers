@@ -20,7 +20,6 @@ Gem::Specification.new do |gem|
   # Dependencies
   gem.required_ruby_version = '>= 2.0'
   gem.add_runtime_dependency 'pry', '~> 0.10'
-  gem.add_runtime_dependency 'pry-rails', '~> 0.3'
   gem.add_runtime_dependency 'pry-doc', '~> 0.6'
   gem.add_runtime_dependency 'pry-git', '~> 0.2'
   gem.add_runtime_dependency 'pry-remote', '>= 0.1.7'
@@ -28,5 +27,4 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'hirb', '~> 0.7'
   gem.add_runtime_dependency 'pry-coolline', '~> 0.2'
   gem.add_runtime_dependency 'awesome_print', '~> 1.6.1'
-  gem.add_runtime_dependency 'railties', '>= 3.0', '< 5.0'
 end
