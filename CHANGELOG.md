@@ -1,3 +1,8 @@
+## Unreleased
+
+* Remove [pry-rails][pry-rails] dependency
+* Remove [railties][railties] dependency
+
 ## 1.0.0 (2015-02-05)
 * Downgrade [pry-byebug][pry-byebug] to v1.3.3
 
@@ -142,3 +147,4 @@
 [pry-debugger]:       https://github.com/nixme/pry-debugger
 [pry-rails]:          https://github.com/rweng/pry-rails
 [pry-byebug]:         https://github.com/deivid-rodriguez/pry-byebug
+[railties]:           https://github.com/rails/rails

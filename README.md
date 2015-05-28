@@ -3,16 +3,14 @@ Jazz Fingers
 
 This repo is a fork, with updates and bug fixes based on [`jazz_hands`](https://github.com/nixme/jazz_hands).
 
-Spending hours in the rails console? Spruce it up and show off those
-hard-working hands!
+Spending hours in the pry console? Spruce it up and show off those
+hard-working fingers!
 
 **jazz_fingers** is an opinionated set of console-related gems and a bit of glue:
 
 * [**Pry**][pry] for a powerful shell alternative to IRB.
 * [**Awesome Print**][awesome_print] for stylish pretty print.
 * [**Hirb**][hirb] for tabular collection output.
-* [**Pry Rails**][pry-rails] for additional commands (`show-routes`,
-  `show-models`, `show-middleware`) in the Rails console.
 * [**Pry Doc**][pry-doc] to browse Ruby source, including C, directly from the
   console.
 * [**Pry Git**][pry-git] to teach the console about git. Diffs, blames, and
@@ -23,7 +21,7 @@ hard-working hands!
 
 ## Usage
 
-Ruby 2.0.0+, Rails 3 or 4 only. Add to your project Gemfile:
+Ruby 2.0.0+. Add to your project Gemfile:
 
 ```ruby
 group :development, :test do
@@ -31,7 +29,7 @@ group :development, :test do
 end
 ```
 
-That's it. Run `rails console` as usual.
+That's it. Run `pry` as usual.
 
 [Hirb][hirb] isn't enabled by default. To use, run `Hirb.enable` in the console.
 
@@ -43,7 +41,7 @@ X) will work but is not recommended.
 
 ## Options
 
-Change the following options by creating an initializer in your Rails project
+Change the following options by creating an initializer
 Example `config/initializers/jazz_fingers.rb`:
 
 ```ruby
@@ -70,7 +68,6 @@ mixed encodings.
 [pry]:                http://pry.github.com
 [awesome_print]:      https://github.com/michaeldv/awesome_print
 [hirb]:               https://github.com/cldwalker/hirb
-[pry-rails]:          https://github.com/rweng/pry-rails
 [pry-doc]:            https://github.com/pry/pry-doc
 [pry-git]:            https://github.com/pry/pry-git
 [pry-remote]:         https://github.com/Mon-Ouie/pry-remote
