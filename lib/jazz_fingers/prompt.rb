@@ -1,66 +1,76 @@
 module JazzFingers
   class Prompt
-    def self.color
-      -> { Pry.color && JazzFingers.colored_prompt }
+    def initialize(options = {})
+      @colored = options.fetch(:colored)
+      @separator = options.fetch(:separator)
     end
 
-    def self.red
-      ->(text) { color[] ? "\001\e[0;31m\002#{text}\001\e[0m\002" : text.to_s }
+    def colored?
+      @colored
     end
 
-    def self.blue
-      ->(text) { color[] ? "\001\e[0;34m\002#{text}\001\e[0m\002" : text.to_s }
+    def red_text(text)
+      return text.to_s unless colored?
+
+      "\001\e[0;31m\002#{text}\001\e[0m\002"
     end
 
-    def self.bold
-      ->(text) { color[] ? "\001\e[1m\002#{text}\001\e[0m\002" : text.to_s }
+    def blue_text(text)
+      return text.to_s unless colored?
+
+      "\001\e[0;34m\002#{text}\001\e[0m\002"
     end
 
-    def self.separator
-      -> { red.call(JazzFingers.prompt_separator) }
+    def bold_text(text)
+      return text.to_s unless colored?
+
+      "\001\e[1m\002#{text}\001\e[0m\002"
     end
 
-    def self.colored_name
+    def separator
+      red_text(@separator)
+    end
+
+    def name
       if respond_to?(:app)
-        name = app.class.parent_name.underscore
+        name = "(#{app.class.parent_name.underscore})"
       else
-        name = 'jazz_fingers'
+        name = "(jazz_fingers)"
       end
 
-      -> { blue.call("(#{name})") }
+      blue_text(name)
     end
 
-    def self.line
-      ->(pry) { ":#{bold.call(pry.input_array.size)}" }
+    def line_number(pry)
+      "[#{bold_text(pry.input_array.size)}]"
     end
 
-    def self.target_string
-      lambda do |object, level|
-        level = 0 if level < 0
-        string = Pry.view_clip(object)
-        if string == "main"
-          ""
-        else
-          "(#{'../' * level}#{string})"
-        end
-      end
-    end
+    def text(object, level)
+      level = 0 if level < 0
+      text = Pry.view_clip(object)
 
-    def self.main_prompt
-      lambda do |object, level, pry|
-        "#{RUBY_VERSION} #{colored_name.call}#{line.call(pry)} #{target_string.call(object, level)} #{separator.call}  "
+      if text == "main"
+        ""
+      else
+        "(#{'../' * level}#{text})"
       end
     end
 
-    def self.wait_prompt
-      lambda do |object, level, pry|
-        spaces = "  " * (level + 1)
-        "#{RUBY_VERSION} #{colored_name.call}#{line.call(pry)} * #{spaces}"
+    def main_prompt
+      lambda do |_object, _level, pry|
+        "#{RUBY_VERSION} #{name}#{line_number(pry)} #{separator} "
       end
     end
 
-    def self.config
-      [main_prompt, wait_prompt]
+    def block_prompt
+      lambda do |_object, level, pry|
+        spaces = "  " * level
+        "#{RUBY_VERSION} #{name}#{line_number(pry)} * #{spaces}"
+      end
+    end
+
+    def config
+      [main_prompt, block_prompt]
     end
   end
 end
