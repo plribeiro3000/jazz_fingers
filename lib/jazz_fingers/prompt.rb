@@ -21,12 +21,17 @@ module JazzFingers
     end
 
     def self.colored_name
-      name = app.class.parent_name.underscore
-      -> { blue.call(name) }
+      if respond_to?(:app)
+        name = app.class.parent_name.underscore
+      else
+        name = 'jazz_fingers'
+      end
+
+      -> { blue.call("(#{name})") }
     end
 
     def self.line
-      ->(pry) { "[#{bold.call(pry.input_array.size)}] " }
+      ->(pry) { ":#{bold.call(pry.input_array.size)}" }
     end
 
     def self.target_string
@@ -43,18 +48,14 @@ module JazzFingers
 
     def self.main_prompt
       lambda do |object, level, pry|
-        "#{line.call(pry)}#{colored_name.call}#{target_string.call(object, level)} #{separator.call}  "
+        "#{RUBY_VERSION} #{colored_name.call}#{line.call(pry)} #{target_string.call(object, level)} #{separator.call}  "
       end
     end
 
     def self.wait_prompt
       lambda do |object, level, pry|
-        spaces = " " * (
-        "[#{pry.input_array.size}] ".size +
-          name.size +
-          target_string.call(object, level).size
-        )
-        "#{spaces} #{separator.call}  "
+        spaces = "  " * (level + 1)
+        "#{RUBY_VERSION} #{colored_name.call}#{line.call(pry)} * #{spaces}"
       end
     end
 
