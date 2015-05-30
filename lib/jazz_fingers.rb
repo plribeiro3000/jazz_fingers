@@ -1,6 +1,7 @@
 require "jazz_fingers/version"
 require "readline"
 require "awesome_print"
+require "hirb"
 require "pry"
 require "pry-doc"
 require "pry-git"
@@ -13,8 +14,7 @@ module JazzFingers
   autoload :Prompt, "jazz_fingers/prompt"
 
   class << self
-    attr_writer :colored_prompt, :prompt_separator, :coolline
-    attr_accessor :_hirb_output
+    attr_writer :colored_prompt, :prompt_separator, :coolline, :awesome_print
 
     def print
       @print ||= Print.config
@@ -53,9 +53,13 @@ module JazzFingers
     def coolline?
       @coolline ||= false
     end
+
+    def awesome_print?
+      @awesome_print ||= true
+    end
   end
 end
 
-Pry.print = JazzFingers.print
+Pry.print = JazzFingers.print if JazzFingers.awesome_print?
 Pry.prompt = JazzFingers.prompt
 Pry.input = JazzFingers.input if JazzFingers.coolline?
