@@ -1,3 +1,5 @@
+require "awesome_print"
+
 module JazzFingers
   class Print
     class << self

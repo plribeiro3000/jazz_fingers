@@ -1,17 +1,16 @@
-require "jazz_fingers/version"
-require "readline"
-require "awesome_print"
 require "hirb"
 require "pry"
 require "pry-doc"
 require "pry-git"
 require "pry-remote"
+require "readline"
 require "jazz_fingers/hirb_ext"
 
 module JazzFingers
   autoload :Input, "jazz_fingers/input"
   autoload :Print, "jazz_fingers/print"
   autoload :Prompt, "jazz_fingers/prompt"
+  autoload :VERSION, "jazz_fingers/version"
 
   class << self
     attr_writer :colored_prompt, :prompt_separator, :coolline, :awesome_print
@@ -59,7 +58,3 @@ module JazzFingers
     end
   end
 end
-
-Pry.print = JazzFingers.print if JazzFingers.awesome_print?
-Pry.prompt = JazzFingers.prompt
-Pry.input = JazzFingers.input if JazzFingers.coolline?
