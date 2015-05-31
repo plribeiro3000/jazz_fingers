@@ -20,7 +20,7 @@ module JazzFingers
     end
 
     def prompt
-      @prompt ||= Prompt.new(:colored => colored_prompt, :separator => prompt_separator)
+      @prompt ||= Prompt.new(colored: colored_prompt, separator: prompt_separator)
       @prompt.config
     end
 
