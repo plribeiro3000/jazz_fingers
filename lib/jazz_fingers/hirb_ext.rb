@@ -4,12 +4,12 @@ class << Hirb::View
 
   def enable_output_method
     @output_method = true
-    JazzFingers.awesome_print = true
+    JazzFingers.config.awesome_print = true
     enable_output_method_existing
   end
 
   def disable_output_method
-    JazzFingers.awesome_print = false
+    JazzFingers.config.awesome_print = false
     disable_output_method_existing
   end
 end

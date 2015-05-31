@@ -18,7 +18,7 @@ module JazzFingers
 
           c.completion_proc = proc do
             word = c.completed_word
-            Object.constants.map(&:to_s).select { |w| w.start_with? word }
+            Object.constants.map(&:to_s).select { |w| w.start_with?(word) }
           end
         end
       end

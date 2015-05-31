@@ -1,3 +1,3 @@
-Pry.print = JazzFingers.print if JazzFingers.awesome_print?
+Pry.print = JazzFingers.print if JazzFingers.config.awesome_print?
 Pry.prompt = JazzFingers.prompt
-Pry.input = JazzFingers.input if JazzFingers.coolline?
+Pry.input = JazzFingers.input if JazzFingers.config.coolline?
