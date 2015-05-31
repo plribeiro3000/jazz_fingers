@@ -46,9 +46,11 @@ Example `config/initializers/jazz_fingers.rb`:
 
 ```ruby
 if defined?(JazzFingers)
-  JazzFingers.colored_prompt = false
-  JazzFingers.awesome_print = false
-  JazzFingers.coolline = false
+  JazzFingers.configure do |config|
+    config.colored_prompt = false
+    config.awesome_print = false
+    config.coolline = false
+  end
 
   require 'jazz_fingers/setup'
 end
