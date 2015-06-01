@@ -1,5 +1,10 @@
-## Unreleased
+## 2.0.0 (2015-05-31)
 
+* Add alias to the most used commands
+* Update [pry-byebug][pry-byebug] to ~> v3.1
+* Improve abstraction by creating models to handle specific responsibilities
+* Add configuration to enable/disable [pry-coolline][pry-coolline]
+* Add configuration to enable/disable [awesome_print][awesome_print]
 * Remove [pry-rails][pry-rails] dependency
 * Remove [railties][railties] dependency
 
