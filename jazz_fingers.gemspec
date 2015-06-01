@@ -23,9 +23,9 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "pry-doc", "~> 0.6"
   gem.add_runtime_dependency "pry-git", "~> 0.2"
   gem.add_runtime_dependency "pry-remote", ">= 0.1.7"
-  gem.add_runtime_dependency "pry-byebug", "1.3.3"
+  gem.add_runtime_dependency "pry-byebug", "~> 3.1"
   gem.add_runtime_dependency "hirb", "~> 0.7"
   gem.add_runtime_dependency "pry-coolline", "~> 0.2"
-  gem.add_runtime_dependency "awesome_print", "~> 1.6.1"
+  gem.add_runtime_dependency "awesome_print", "~> 1.6"
   gem.add_development_dependency "rubocop"
 end
