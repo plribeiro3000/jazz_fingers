@@ -9,8 +9,8 @@ Gem::Specification.new do |gem|
   gem.email         = "plribeiro3000@gmail.com"
   gem.license       = "MIT"
   gem.homepage      = "https://github.com/plribeiro3000/jazz_fingers"
-  gem.summary       = "Exercise those fingers. Pry-based enhancements for the default Rails console."
-  gem.description   = "Spending hours in the rails console? Spruce it up and show off those hard-working hands! jazz_fingers replaces IRB with Pry, improves output through awesome_print, and has some other goodies up its sleeves."
+  gem.summary       = "Exercise those fingers. Pry-based enhancements for the default Ruby console."
+  gem.description   = "Spending hours in the ruby console? Spruce it up and show off those hard-working hands! jazz_fingers replaces IRB with Pry, improves output through awesome_print, and has some other goodies up its sleeves."
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
