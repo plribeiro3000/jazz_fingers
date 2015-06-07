@@ -4,6 +4,6 @@ Pry.prompt = JazzFingers.prompt
 Pry.input = JazzFingers.input if JazzFingers.config.coolline?
 
 # Command Shortcuts
-Pry.commands.alias_command('c', 'continue')
-Pry.commands.alias_command('s', 'step')
-Pry.commands.alias_command('n', 'next')
+Pry.commands.alias_command("c", "continue")
+Pry.commands.alias_command("s", "step")
+Pry.commands.alias_command("n", "next")
