@@ -32,8 +32,8 @@ module JazzFingers
     end
 
     def name
-      if respond_to?(:app)
-        name = "(#{app.class.parent_name.underscore})"
+      if defined?(Rails)
+        name = Rails.application.class.parent_name.underscore
       else
         name = "(jazz_fingers)"
       end
