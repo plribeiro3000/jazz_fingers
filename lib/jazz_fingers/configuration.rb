@@ -1,6 +1,7 @@
 module JazzFingers
   class Configuration
-    attr_writer :colored_prompt, :prompt_separator, :coolline, :awesome_print
+    attr_writer :colored_prompt, :prompt_separator, :coolline, :awesome_print,
+      :application_name
 
     # Color the prompt?
     #
@@ -35,6 +36,16 @@ module JazzFingers
       return true if @awesome_print.nil?
 
       @awesome_print
+    end
+
+    def application_name
+      return "(#{@application_name.to_s.underscore})" unless @application_name.nil?
+
+      if defined?(Rails)
+        return "(#{Rails.application.class.parent_name.underscore})"
+      else
+        return "(jazz_fingers)"
+      end
     end
   end
 end

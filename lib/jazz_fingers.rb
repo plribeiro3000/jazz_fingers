@@ -20,7 +20,12 @@ module JazzFingers
     end
 
     def prompt
-      @prompt ||= Prompt.new(colored: config.colored_prompt, separator: config.prompt_separator)
+      @prompt ||=
+        Prompt.new(
+          colored: config.colored_prompt,
+          separator: config.prompt_separator,
+          application_name: config.application_name
+        )
       @prompt.config
     end
 

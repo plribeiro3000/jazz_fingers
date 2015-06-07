@@ -3,6 +3,7 @@ module JazzFingers
     def initialize(options = {})
       @colored = options.fetch(:colored)
       @separator = options.fetch(:separator)
+      @application_name = options.fetch(:application_name)
     end
 
     def colored?
@@ -32,13 +33,7 @@ module JazzFingers
     end
 
     def name
-      if defined?(Rails)
-        name = Rails.application.class.parent_name.underscore
-      else
-        name = "(jazz_fingers)"
-      end
-
-      blue_text(name)
+      blue_text(@application_name)
     end
 
     def line_number(pry)
