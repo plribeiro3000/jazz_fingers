@@ -1,5 +1,6 @@
 require "hirb"
 require "pry"
+require "pry-byebug"
 require "pry-doc"
 require "pry-git"
 require "pry-remote"
