@@ -39,13 +39,23 @@ module JazzFingers
     end
 
     def application_name
-      return "(#{@application_name.to_s.underscore})" unless @application_name.nil?
+      return "(#{underscore(@application_name)})" unless @application_name.nil?
 
       if defined?(Rails)
         return "(#{Rails.application.class.parent_name.underscore})"
       else
         return "(jazz_fingers)"
       end
+    end
+
+    private
+
+    def underscore(camel_cased_word)
+      camel_cased_word.to_s.gsub(/::/, '/').
+        gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
+        gsub(/([a-z\d])([A-Z])/,'\1_\2').
+        tr("-", "_").
+        downcase
     end
   end
 end
