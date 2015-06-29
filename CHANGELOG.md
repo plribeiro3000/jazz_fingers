@@ -1,3 +1,13 @@
+## 2.0.1 (2015-06-29)
+
+* Fix application name when outside Rails
+
+## 2.0.1.rc1 (2015-05-27)
+
+* Fix load of [pry][pry] plugins
+* Fix application name when inside Rails
+* Add feature to set a custom Name
+
 ## 2.0.0 (2015-05-31)
 
 * Add alias to the most used commands
