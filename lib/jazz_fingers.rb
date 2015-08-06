@@ -1,3 +1,5 @@
+ENV['HOME'] ||= '/dev/null'
+
 require "hirb"
 require "pry"
 require "pry-byebug"
