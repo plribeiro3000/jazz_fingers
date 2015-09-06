@@ -1,3 +1,7 @@
+## 2.0.2 (2015-09-06)
+
+* Fix YARD issue when ENV['HOME'] is empty
+
 ## 2.0.1 (2015-06-29)
 
 * Fix application name when outside Rails
