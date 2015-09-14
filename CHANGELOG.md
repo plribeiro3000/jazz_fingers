@@ -1,3 +1,7 @@
+## 3.0.0 (unreleased)
+
+* Remove [pry-git] dependency
+
 ## 2.0.2 (2015-09-06)
 
 * Fix YARD issue when ENV['HOME'] is empty
