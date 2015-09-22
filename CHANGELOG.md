@@ -1,6 +1,7 @@
-## 3.0.0 (unreleased)
+## 3.0.0 (2015-09-22)
 
 * Remove [pry-git] dependency
+* Switch to HTTPS in Gemfile
 
 ## 2.0.2 (2015-09-06)
 
