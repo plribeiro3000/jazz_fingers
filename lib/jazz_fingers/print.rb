@@ -7,7 +7,7 @@ module JazzFingers
         lambda do |_output, value, pry_object|
           return if Hirb::View.view_or_page_output(value)
           pretty = value.ai(indent: 2)
-          pry_object.pager.page("=> #{pretty}")
+          pry_object.pager.page("=> #{pretty}\n")
         end
       end
     end
