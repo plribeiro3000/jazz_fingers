@@ -3,6 +3,7 @@
 
 # Contributors
 * Andrew Volozhanin <linuxheadrus@gmail.com>
+* Anthony Sellitti <anthony.github@asellitt.com>
 * Casey Lang <hello@casey-lang.com>
 * Fernando Paredes <nano@fdp.io>
 * Micah Gates <github@mgates.com>

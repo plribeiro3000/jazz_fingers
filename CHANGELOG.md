@@ -1,3 +1,8 @@
+# CHANGELOG
+
+## 3.0.1 (2016-02-28)
+* Separate prompt and print output with a new line
+
 ## 3.0.0 (2015-09-22)
 
 * Remove [pry-git] dependency
