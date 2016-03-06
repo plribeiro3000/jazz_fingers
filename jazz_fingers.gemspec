@@ -22,7 +22,10 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "pry", "~> 0.10"
   gem.add_runtime_dependency "pry-doc", "~> 0.6"
   gem.add_runtime_dependency "pry-remote", ">= 0.1.7"
-  gem.add_runtime_dependency "pry-byebug", "~> 3.1"
+  # This is pinned because of compatibility issues with pry remote.
+  # See: https://github.com/deivid-rodriguez/pry-byebug/issues/33
+  # And: https://github.com/Mon-Ouie/pry-remote/issues/58
+  gem.add_runtime_dependency "pry-byebug", "1.3.3"
   gem.add_runtime_dependency "hirb", "~> 0.7"
   gem.add_runtime_dependency "pry-coolline", "~> 0.2"
   gem.add_runtime_dependency "awesome_print", "~> 1.6"
