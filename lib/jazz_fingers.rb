@@ -4,7 +4,6 @@ require "hirb"
 require "pry"
 require "pry-byebug"
 require "pry-doc"
-require "pry-remote"
 require "readline"
 require "jazz_fingers/hirb_ext"
 

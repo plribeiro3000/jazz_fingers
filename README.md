@@ -13,7 +13,6 @@ hard-working fingers!
 * [**Hirb**][hirb] for tabular collection output.
 * [**Pry Doc**][pry-doc] to browse Ruby source, including C, directly from the
   console.
-* [**Pry Remote**][pry-remote] to connect remotely to a Pry console.
 * [**Pry Coolline**][pry-coolline] for syntax highlighting as you type.
 
 
@@ -74,7 +73,6 @@ mixed encodings.
 [awesome_print]:      https://github.com/michaeldv/awesome_print
 [hirb]:               https://github.com/cldwalker/hirb
 [pry-doc]:            https://github.com/pry/pry-doc
-[pry-remote]:         https://github.com/Mon-Ouie/pry-remote
 [pry-coolline]:       https://github.com/pry/pry-coolline
 [coderay]:            https://github.com/rubychan/coderay
 [rb-readline]:        https://github.com/luislavena/rb-readline
