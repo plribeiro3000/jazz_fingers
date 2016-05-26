@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 4.0.0 (2016-05-26)
+* Remove [pry-remote][pry-remote] dependency
+
 ## 3.0.2 (2016-03-07)
 * Downgrade [pry-byebug][pry-byebug] to fix issues with [pry-remote][pry-remote]
 
