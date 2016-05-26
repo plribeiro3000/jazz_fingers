@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 4.0.1 (2016-05-26)
+* Remove requires for `pry-remote`
+
 ## 4.0.0 (2016-05-26)
 * Remove [pry-remote][pry-remote] dependency
 
