@@ -32,8 +32,6 @@ end
 
 That's it. Run `pry` as usual.
 
-[Hirb][hirb] isn't enabled by default. To use, run `Hirb.enable` in the console.
-
 Ruby compiled against a proper readline library, ideally GNU readline, is
 recommended. Alternatively, [`gem install rb-readline`][rb-readline] for an
 acceptible backup. Using ruby compiled against a `libedit` wrapper (primarily OS
