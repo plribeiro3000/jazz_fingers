@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 5.0.0 (2018-05-02)
 * Remove [pry-doc][pry-doc] dependency to reduce memory footprint
 * Remove [hirb][hirb] dependency since its not being actively maintained
 

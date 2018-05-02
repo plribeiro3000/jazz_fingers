@@ -1,17 +1,5 @@
 Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
   Enabled: false
-
-Style/EachWithObject:
-  Enabled: false
-
-Style/Encoding:
-  EnforcedStyle: when_needed
-
-Style/FormatString:
-  Enabled: false
-
-Style/SignalException:
-  EnforcedStyle: only_raise
-
-Style/StringLiterals:
-  EnforcedStyle: double_quotes

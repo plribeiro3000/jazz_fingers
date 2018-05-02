@@ -44,8 +44,8 @@ module JazzFingers
       level = 0 if level < 0
       text = Pry.view_clip(object)
 
-      if text == "main"
-        ""
+      if text == 'main'
+        ''
       else
         "(#{'../' * level}#{text})"
       end
@@ -59,7 +59,7 @@ module JazzFingers
 
     def block_prompt
       lambda do |_object, level, pry|
-        spaces = "  " * level
+        spaces = '  ' * level
         "#{RUBY_VERSION} #{name}#{line_number(pry)} * #{spaces}"
       end
     end

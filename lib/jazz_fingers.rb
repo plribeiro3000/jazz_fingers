@@ -1,16 +1,16 @@
 ENV['HOME'] ||= '/dev/null'
 
-require "pry"
-require "pry-byebug"
-require "readline"
-require "forwardable"
+require 'pry'
+require 'pry-byebug'
+require 'readline'
+require 'forwardable'
 
 module JazzFingers
-  autoload :Configuration, "jazz_fingers/configuration"
-  autoload :Input, "jazz_fingers/input"
-  autoload :Print, "jazz_fingers/print"
-  autoload :Prompt, "jazz_fingers/prompt"
-  autoload :VERSION, "jazz_fingers/version"
+  autoload :Configuration, 'jazz_fingers/configuration'
+  autoload :Input, 'jazz_fingers/input'
+  autoload :Print, 'jazz_fingers/print'
+  autoload :Prompt, 'jazz_fingers/prompt'
+  autoload :VERSION, 'jazz_fingers/version'
 
   class << self
     extend Forwardable
@@ -49,9 +49,9 @@ module JazzFingers
       Pry.prompt = prompt
       Pry.input = input if JazzFingers.coolline?
       Pry.config.should_load_plugins = false
-      Pry.commands.alias_command("c", "continue")
-      Pry.commands.alias_command("s", "step")
-      Pry.commands.alias_command("n", "next")
+      Pry.commands.alias_command('c', 'continue')
+      Pry.commands.alias_command('s', 'step')
+      Pry.commands.alias_command('n', 'next')
 
       true
     end

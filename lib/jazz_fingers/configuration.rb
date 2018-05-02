@@ -1,7 +1,7 @@
 module JazzFingers
   class Configuration
     attr_writer :colored_prompt, :prompt_separator, :coolline, :awesome_print,
-      :application_name
+                :application_name
 
     # Color the prompt?
     #
@@ -23,7 +23,7 @@ module JazzFingers
     # Default: right angle quote, or '>' when using rb-readline which doesn't
     # handle mixed encodings well.
     def prompt_separator
-      @prompt_separator ||= defined?(RbReadline) ? ">" : "\u00BB"
+      @prompt_separator ||= defined?(RbReadline) ? '>' : "\u00BB"
     end
 
     def coolline?
@@ -40,22 +40,19 @@ module JazzFingers
 
     def application_name
       return "(#{underscore(@application_name)})" unless @application_name.nil?
+      return "(#{Rails.application.class.parent_name.underscore})" if defined?(Rails)
 
-      if defined?(Rails)
-        return "(#{Rails.application.class.parent_name.underscore})"
-      else
-        return "(jazz_fingers)"
-      end
+      '(jazz_fingers)'
     end
 
     private
 
     def underscore(camel_cased_word)
-      camel_cased_word.to_s.gsub(/::/, '/').
-        gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
-        gsub(/([a-z\d])([A-Z])/,'\1_\2').
-        tr("-", "_").
-        downcase
+      camel_cased_word.to_s.gsub(/::/, '/')
+                      .gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2')
+                      .gsub(/([a-z\d])([A-Z])/, '\1_\2')
+                      .tr('-', '_')
+                      .downcase
     end
   end
 end

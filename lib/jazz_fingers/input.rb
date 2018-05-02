@@ -1,5 +1,5 @@
-require "pry-coolline"
-require "coderay"
+require 'pry-coolline'
+require 'coderay'
 
 module JazzFingers
   class Input

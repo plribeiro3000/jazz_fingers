@@ -13,7 +13,7 @@ hard-working fingers!
   console.
 * [**Pry Coolline**][pry-coolline] for syntax highlighting as you type.
 
-## Notes on Update
+## Notes on Update to `5.0.0`
 * [**Hirb**][hirb] was removed since it is not actively being maintained
 * [**Pry-Doc**][pry-doc] was removed since it adds a lot of memory footprint which makes `JazzFingers` too heavy to use in production.
 Add it to your `Gemfile` if you want it back
