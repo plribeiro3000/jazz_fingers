@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Unreleased
+* Remove [pry-doc][pry-doc] dependency to reduce memory footprint
+* Remove [hirb][hirb] dependency since its not being actively maintained
+
 ## 4.0.1 (2016-05-26)
 * Remove requires for `pry-remote`
 

@@ -10,11 +10,15 @@ hard-working fingers!
 
 * [**Pry**][pry] for a powerful shell alternative to IRB.
 * [**Awesome Print**][awesome_print] for stylish pretty print.
-* [**Hirb**][hirb] for tabular collection output.
-* [**Pry Doc**][pry-doc] to browse Ruby source, including C, directly from the
   console.
 * [**Pry Coolline**][pry-coolline] for syntax highlighting as you type.
 
+## Notes on Update
+* [**Hirb**][hirb] was removed since it is not actively being maintained
+* [**Pry-Doc**][pry-doc] was removed since it adds a lot of memory footprint which makes `JazzFingers` too heavy to use in production.
+Add it to your `Gemfile` if you want it back
+* `jazz_fingers/setup` is not needed since the setup is done automatically after the configuration block ends
+* Call `JazzFingers.setup!` if you are using the default configurations
 
 ## Usage
 
@@ -38,8 +42,7 @@ X) will work but is not recommended.
 
 ## Options
 
-Change the following options by creating an initializer
-Example `config/initializers/jazz_fingers.rb`:
+Some configurations can be overwritten:
 
 ```ruby
 if defined?(JazzFingers)
@@ -49,8 +52,6 @@ if defined?(JazzFingers)
     config.coolline = false
     config.application_name = MyAwesomeProject
   end
-
-  require 'jazz_fingers/setup'
 end
 ```
 

@@ -1,11 +1,9 @@
 ENV['HOME'] ||= '/dev/null'
 
-require "hirb"
 require "pry"
 require "pry-byebug"
-require "pry-doc"
 require "readline"
-require "jazz_fingers/hirb_ext"
+require "forwardable"
 
 module JazzFingers
   autoload :Configuration, "jazz_fingers/configuration"
@@ -15,6 +13,10 @@ module JazzFingers
   autoload :VERSION, "jazz_fingers/version"
 
   class << self
+    extend Forwardable
+
+    def_delegators :config, :awesome_print?, :coolline?
+
     def print
       @print ||= Print.config
     end
@@ -35,10 +37,23 @@ module JazzFingers
 
     def configure
       yield @config ||= Configuration.new
+      setup!
     end
 
     def config
       @config ||= Configuration.new
+    end
+
+    def setup!
+      Pry.print = print if JazzFingers.awesome_print?
+      Pry.prompt = prompt
+      Pry.input = input if JazzFingers.coolline?
+      Pry.config.should_load_plugins = false
+      Pry.commands.alias_command("c", "continue")
+      Pry.commands.alias_command("s", "step")
+      Pry.commands.alias_command("n", "next")
+
+      true
     end
   end
 end
