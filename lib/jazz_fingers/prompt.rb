@@ -37,7 +37,7 @@ module JazzFingers
     end
 
     def line_number(pry)
-      "[#{bold_text(pry.input_array.size)}]"
+      "[#{bold_text(pry.input_ring.size)}]"
     end
 
     def text(object, level)
