@@ -37,7 +37,11 @@ module JazzFingers
     end
 
     def line_number(pry)
-      "[#{bold_text(pry.input_array.size)}]"
+      if pry.respond_to? :input_ring
+        "[#{bold_text(pry.input_ring.size)}]"
+      else
+        "[#{bold_text(pry.input_array.size)}]"
+      end
     end
 
     def text(object, level)
