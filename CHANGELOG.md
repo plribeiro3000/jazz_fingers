@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.0.1 (2019-06-02)
+* Remove documentation for removed dependency
+* Use non deprecated method of `pry` if existent
+
 ## 5.0.0 (2018-05-02)
 * Remove [pry-doc][pry-doc] dependency to reduce memory footprint
 * Remove [hirb][hirb] dependency since its not being actively maintained
