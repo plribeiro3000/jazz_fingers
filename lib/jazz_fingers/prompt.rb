@@ -69,7 +69,11 @@ module JazzFingers
     end
 
     def config
-      [main_prompt, block_prompt]
+      Pry::Prompt.new(
+        :jazz_fingers,
+        "The JazzFingers prompt",
+        [main_prompt, block_prompt]
+      )
     end
   end
 end
