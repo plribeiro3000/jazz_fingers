@@ -1,5 +1,7 @@
 module JazzFingers
   class Prompt
+    CLASSNAME_REGEX = /#<(.+)>/
+
     def initialize(options = {})
       @colored = options.fetch(:colored)
       @separator = options.fetch(:separator)
@@ -32,47 +34,36 @@ module JazzFingers
       red_text(@separator)
     end
 
-    def name
-      blue_text(@application_name)
+    def context(module_name = "main")
+      name =
+        if module_name == "main"
+          @application_name
+        else
+          module_name[CLASSNAME_REGEX, 1]
+        end
+
+      blue_text("(#{name})")
     end
 
     def line_number(pry)
       if pry.respond_to? :input_ring
-        "[#{bold_text(pry.input_ring.size)}]"
+        bold_text(pry.input_ring.size)
       else
-        "[#{bold_text(pry.input_array.size)}]"
+        bold_text(pry.input_array.size)
       end
     end
 
-    def text(object, level)
-      level = 0 if level < 0
-      text = Pry.view_clip(object)
-
-      if text == 'main'
-        ''
-      else
-        "(#{'../' * level}#{text})"
-      end
+    def separators
+      [separator, "*"]
     end
 
-    def main_prompt
-      lambda do |_object, _level, pry|
-        "#{RUBY_VERSION} #{name}#{line_number(pry)} #{separator} "
-      end
-    end
-
-    def block_prompt
-      lambda do |_object, level, pry|
-        spaces = '  ' * level
-        "#{RUBY_VERSION} #{name}#{line_number(pry)} * #{spaces}"
-      end
-    end
-
-    def config
-      Pry::Prompt.new(
-        :jazz_fingers,
-        "The JazzFingers prompt",
-        [main_prompt, block_prompt]
+    def template(module_name, pry, separator)
+      format(
+        "%<ruby>s %<context>s[%<line>s] %<separator>s ",
+        ruby: RUBY_VERSION,
+        context: context(module_name),
+        line: line_number(pry),
+        separator: separator
       )
     end
   end
