@@ -1,6 +1,6 @@
 module JazzFingers
   class Prompt
-    CLASSNAME_REGEX = /#<(.+)>/
+    OBJECT_INSTANCE = /#<(.+)>/
 
     def initialize(options = {})
       @colored = options.fetch(:colored)
@@ -36,10 +36,13 @@ module JazzFingers
 
     def context(module_name = "main")
       name =
-        if module_name == "main"
+        case module_name
+        when "main", "nil"
           @application_name
+        when OBJECT_INSTANCE
+          abbreviated_context(module_name)
         else
-          module_name[CLASSNAME_REGEX, 1]
+          module_name
         end
 
       blue_text("(#{name})")
@@ -51,6 +54,33 @@ module JazzFingers
       else
         bold_text(pry.input_array.size)
       end
+    end
+
+    # Abbreviate the object path for object instances to a maximum length of
+    # `max_length` so the prompt doesn't overflow.
+    #
+    # Examples:
+    #   In:  #<Class1::Class2::Class3::Class4::Class5>
+    #   Out: #<...Class2::Class3::Class4::Class5>
+    #
+    #   In:  #<Class1::Class2>
+    #   Out: #<Class1::Class2>
+    #
+    #   In:  #<NoPathJustASingleLongClassName>
+    #   Out: #<NoPathJustASingleLongClassName>
+    def abbreviated_context(object_label, max_length: 20)
+      object_path = object_label[OBJECT_INSTANCE, 1]
+      object_path_components = object_path.split("::")
+      return object_label if object_path_components.length == 1
+
+      object_path_length = object_path_components.map(&:length).sum
+      return object_label if object_path_length < max_length
+
+      tail = object_path_components.drop_while do |component|
+        (object_path_length -= component.length) > max_length
+      end
+
+      ["#<...", tail.join("::"), ">"].join
     end
 
     def separators
