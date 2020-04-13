@@ -39,7 +39,7 @@ module JazzFingers
 
       Pry::Prompt.add(
         :jazz_fingers,
-        "JazzFingers prompt",
+        "A spruced-up prompt provided by jazz_fingers.",
         prompt.separators
       ) do |context, _nesting, pry, separator|
         prompt.template(Pry.view_clip(context), pry, separator)
