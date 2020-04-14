@@ -1,10 +1,5 @@
 # CHANGELOG
 
-## 5.0.2 (unreleased)
-* Use non-deprecated method of setting prompt (see [Pry PR #1877][pry-1877])
-
-[pry-1877]: https://github.com/pry/pry/pull/1877
-
 ## 5.0.1 (2019-06-02)
 * Remove documentation for removed dependency
 * Use non deprecated method of `pry` if existent
