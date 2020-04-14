@@ -34,6 +34,16 @@ module JazzFingers
       red_text(@separator)
     end
 
+    # Return the current Pry context
+    #
+    # When the Pry context is `"main"` or `"nil"`, use the application name from
+    # the JazzFingers config. Examples: "(my_rails_app_name)", "(jazz_fingers)".
+    #
+    # When in the context of an object instance, use the abbreviated object
+    # path. Example: "(#<Pry::Prompt>)", "(#<...::ModuleName::ClassName>)"
+    #
+    # Fall back to the raw context provided by Pry.view_clip.
+    # Example: "(Pry::Prompt)"
     def context(module_name = "main")
       name =
         case module_name
