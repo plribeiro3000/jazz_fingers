@@ -30,8 +30,12 @@ module JazzFingers
       "\001\e[1m\002#{text}\001\e[0m\002"
     end
 
-    def separator
+    def main_separator
       red_text(@separator)
+    end
+
+    def wait_separator
+      "*"
     end
 
     # Return the current Pry context
@@ -93,10 +97,6 @@ module JazzFingers
       ["#<...", tail.join("::"), ">"].join
     end
 
-    def separators
-      [separator, "*"]
-    end
-
     def template(module_name, pry, separator)
       format(
         "%<ruby>s %<context>s[%<line>s] %<separator>s ",
@@ -105,6 +105,48 @@ module JazzFingers
         line: line_number(pry),
         separator: separator
       )
+    end
+
+    def pry_prompt
+      if Pry::VERSION >= "0.13.0"
+        add_to_pry_prompts_listing
+      else
+        [main_prompt, wait_prompt]
+      end
+    end
+
+    # Add JazzFingers prompt to the Pry::Prompt hash to enable changing it with
+    # `change-prompt`.
+    #
+    # For Pry >= 0.13.
+    #
+    # Return the Pry::Prompt object.
+    def add_to_pry_prompts_listing
+      return Pry::Prompt[:jazz_fingers] if Pry::Prompt[:jazz_fingers]
+
+      Pry::Prompt.add(
+        :jazz_fingers,
+        "A spruced-up prompt provided by jazz_fingers.",
+        [main_separator, wait_separator]
+      ) do |context, _nesting, pry, separator|
+        template(Pry.view_clip(context), pry, separator)
+      end
+
+      Pry::Prompt[:jazz_fingers]
+    end
+
+    # For Pry < 0.13.
+    def main_prompt
+      lambda do |context, _nesting, pry|
+        template(Pry.view_clip(context), pry, main_separator)
+      end
+    end
+
+    # For Pry < 0.13
+    def wait_prompt
+      lambda do |context, _nesting, pry|
+        template(Pry.view_clip(context), pry, wait_separator)
+      end
     end
   end
 end

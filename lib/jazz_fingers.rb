@@ -30,24 +30,6 @@ module JazzFingers
         )
     end
 
-    # Add JazzFingers prompt to the Pry::Prompt hash to enable changing it with
-    # `change-prompt`.
-    #
-    # Return the Pry::Prompt object.
-    def jazz_fingers_prompt
-      return Pry::Prompt[:jazz_fingers] if Pry::Prompt[:jazz_fingers]
-
-      Pry::Prompt.add(
-        :jazz_fingers,
-        "A spruced-up prompt provided by jazz_fingers.",
-        prompt.separators
-      ) do |context, _nesting, pry, separator|
-        prompt.template(Pry.view_clip(context), pry, separator)
-      end
-
-      Pry::Prompt[:jazz_fingers]
-    end
-
     def input
       @input ||= Input.config
     end
@@ -63,7 +45,7 @@ module JazzFingers
 
     def setup!
       Pry.print = print if JazzFingers.awesome_print?
-      Pry.prompt = jazz_fingers_prompt
+      Pry.prompt = prompt.pry_prompt
       Pry.input = input if JazzFingers.coolline?
       Pry.config.should_load_plugins = false
       Pry.commands.alias_command('c', 'continue')
