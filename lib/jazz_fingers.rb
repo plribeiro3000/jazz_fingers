@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ENV["HOME"] ||= "/dev/null"
 
 require "pry"
@@ -10,7 +12,8 @@ module JazzFingers
   autoload :Input, "jazz_fingers/input"
   autoload :Print, "jazz_fingers/print"
   autoload :Prompt, "jazz_fingers/prompt"
-  autoload :PromptPry012, "jazz_fingers/prompt_pry_012"
+  autoload :Pry012, "jazz_fingers/prompt/pry_012"
+  autoload :Pry013, "jazz_fingers/prompt/pry_013"
   autoload :VERSION, "jazz_fingers/version"
 
   class << self
@@ -22,17 +25,9 @@ module JazzFingers
       @print ||= Print.config
     end
 
-    def prompt_class
-      if Pry::VERSION >= "0.13.0"
-        Prompt
-      else
-        PromptPry012
-      end
-    end
-
     def prompt
       @prompt ||=
-        prompt_class.new(
+        Prompt.new(
           colored: config.colored_prompt,
           separator: config.prompt_separator,
           application_name: config.application_name
