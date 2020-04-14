@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module JazzFingers
+  # For Pry >= 0.13.
   class Prompt
     OBJECT_INSTANCE = /#<(.+)>/
 
@@ -107,21 +110,9 @@ module JazzFingers
       )
     end
 
-    def pry_prompt
-      if Pry::VERSION >= "0.13.0"
-        add_to_pry_prompts_listing
-      else
-        [main_prompt, wait_prompt]
-      end
-    end
-
-    # Add JazzFingers prompt to the Pry::Prompt hash to enable changing it with
-    # `change-prompt`.
-    #
-    # For Pry >= 0.13.
-    #
-    # Return the Pry::Prompt object.
-    def add_to_pry_prompts_listing
+    # Add the JazzFingers prompt to the Pry::Prompt hash to enable changing it
+    # with `change-prompt`. Return the Pry::Prompt object.
+    def  pry_config
       return Pry::Prompt[:jazz_fingers] if Pry::Prompt[:jazz_fingers]
 
       Pry::Prompt.add(
@@ -133,20 +124,6 @@ module JazzFingers
       end
 
       Pry::Prompt[:jazz_fingers]
-    end
-
-    # For Pry < 0.13.
-    def main_prompt
-      lambda do |context, _nesting, pry|
-        template(Pry.view_clip(context), pry, main_separator)
-      end
-    end
-
-    # For Pry < 0.13
-    def wait_prompt
-      lambda do |context, _nesting, pry|
-        template(Pry.view_clip(context), pry, wait_separator)
-      end
     end
   end
 end

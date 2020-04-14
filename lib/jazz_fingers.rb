@@ -1,16 +1,17 @@
-ENV['HOME'] ||= '/dev/null'
+ENV["HOME"] ||= "/dev/null"
 
-require 'pry'
-require 'pry-byebug'
-require 'readline'
-require 'forwardable'
+require "pry"
+require "pry-byebug"
+require "readline"
+require "forwardable"
 
 module JazzFingers
-  autoload :Configuration, 'jazz_fingers/configuration'
-  autoload :Input, 'jazz_fingers/input'
-  autoload :Print, 'jazz_fingers/print'
-  autoload :Prompt, 'jazz_fingers/prompt'
-  autoload :VERSION, 'jazz_fingers/version'
+  autoload :Configuration, "jazz_fingers/configuration"
+  autoload :Input, "jazz_fingers/input"
+  autoload :Print, "jazz_fingers/print"
+  autoload :Prompt, "jazz_fingers/prompt"
+  autoload :PromptPry012, "jazz_fingers/prompt_pry_012"
+  autoload :VERSION, "jazz_fingers/version"
 
   class << self
     extend Forwardable
@@ -21,9 +22,17 @@ module JazzFingers
       @print ||= Print.config
     end
 
+    def prompt_class
+      if Pry::VERSION >= "0.13.0"
+        Prompt
+      else
+        PromptPry012
+      end
+    end
+
     def prompt
       @prompt ||=
-        Prompt.new(
+        prompt_class.new(
           colored: config.colored_prompt,
           separator: config.prompt_separator,
           application_name: config.application_name
@@ -45,7 +54,7 @@ module JazzFingers
 
     def setup!
       Pry.print = print if JazzFingers.awesome_print?
-      Pry.prompt = prompt.pry_prompt
+      Pry.prompt = prompt.pry_config
       Pry.input = input if JazzFingers.coolline?
       Pry.config.should_load_plugins = false
       Pry.commands.alias_command('c', 'continue')
