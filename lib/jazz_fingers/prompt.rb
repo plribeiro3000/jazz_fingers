@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require_relative "prompt/pry_012"
+require_relative "prompt/pry_013"
+
 module JazzFingers
   class Prompt
     OBJECT_INSTANCE = /#<(.+)>/

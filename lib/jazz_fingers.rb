@@ -12,8 +12,6 @@ module JazzFingers
   autoload :Input, "jazz_fingers/input"
   autoload :Print, "jazz_fingers/print"
   autoload :Prompt, "jazz_fingers/prompt"
-  autoload :Pry012, "jazz_fingers/prompt/pry_012"
-  autoload :Pry013, "jazz_fingers/prompt/pry_013"
   autoload :VERSION, "jazz_fingers/version"
 
   class << self
