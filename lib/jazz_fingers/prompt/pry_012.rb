@@ -4,7 +4,7 @@ module JazzFingers
   class Prompt
     # For Pry < 0.13.
     module Pry012
-      def pry_config
+      def config
         [main_prompt, wait_prompt]
       end
 

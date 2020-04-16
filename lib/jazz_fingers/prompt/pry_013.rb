@@ -8,7 +8,7 @@ module JazzFingers
       # with `change-prompt`.
       #
       # Return the Pry::Prompt object.
-      def pry_config
+      def config
         return Pry::Prompt[:jazz_fingers] if Pry::Prompt[:jazz_fingers]
 
         Pry::Prompt.add(
