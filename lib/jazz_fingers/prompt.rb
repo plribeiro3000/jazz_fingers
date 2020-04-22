@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-require_relative "prompt/pry_012"
-require_relative "prompt/pry_013"
-
 module JazzFingers
   class Prompt
     OBJECT_INSTANCE = /#<(.+)>/
 
     if Pry::VERSION >= "0.13.0"
-      include Pry013
+      require_relative "prompt/pry_version_013_and_later"
+      include PryVersion013AndLater
     else
-      include Pry012
+      require_relative "prompt/pry_version_012_and_prior"
+      include PryVersion012AndPrior
     end
 
     def initialize(options = {})

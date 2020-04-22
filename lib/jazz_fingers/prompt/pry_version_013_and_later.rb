@@ -3,7 +3,7 @@
 module JazzFingers
   class Prompt
     # For Pry >= 0.13.
-    module Pry013
+    module PryVersion013AndLater
       # Add the JazzFingers prompt to the Pry::Prompt hash to enable changing it
       # with `change-prompt`.
       #
