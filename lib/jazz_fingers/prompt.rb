@@ -80,8 +80,8 @@ module JazzFingers
       end
     end
 
-    # Abbreviate the object path for object instances to a maximum length of
-    # `max_length` so the prompt doesn't overflow.
+    # Abbreviate the object path in the given `object_label` string so the
+    # prompt doesn't overflow. Display only the root and leaf namespaces.
     #
     # Examples:
     #   In:  #<Class1::Class2::Class3::Class4::Class5>
