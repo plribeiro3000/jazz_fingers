@@ -55,7 +55,7 @@ module JazzFingers
     # the JazzFingers config. Examples: "(my_rails_app_name)", "(jazz_fingers)".
     #
     # When in the context of an object instance, use the abbreviated object
-    # path. Example: "(#<Pry::Prompt>)", "(#<...::ModuleName::ClassName>)"
+    # path. Example: "(#<Pry::Prompt>)", "(#<RSpec::...::ClassName>)"
     #
     # Fall back to the raw context provided by Pry.view_clip.
     # Example: "(Pry::Prompt)"
@@ -86,26 +86,20 @@ module JazzFingers
     #
     # Examples:
     #   In:  #<Class1::Class2::Class3::Class4::Class5>
-    #   Out: #<...Class2::Class3::Class4::Class5>
+    #   Out: #<Class1::...::Class5>
     #
     #   In:  #<Class1::Class2>
     #   Out: #<Class1::Class2>
     #
     #   In:  #<NoPathJustASingleLongClassName>
     #   Out: #<NoPathJustASingleLongClassName>
-    def abbreviated_context(object_label, max_length: 20)
+    def abbreviated_context(object_label)
       object_path = object_label[OBJECT_INSTANCE, 1]
       object_path_components = object_path.split("::")
-      return object_label if object_path_components.length == 1
+      return object_label if object_path_components.length <= 2
 
-      object_path_length = object_path_components.map(&:length).sum
-      return object_label if object_path_length < max_length
-
-      tail = object_path_components.drop_while do |component|
-        (object_path_length -= component.length) > max_length
-      end
-
-      ["#<...", tail.join("::"), ">"].join
+      root, *_, leaf = object_path_components
+      "#<#{root}::...::#{leaf}>"
     end
 
     def template(module_name, pry, separator)
