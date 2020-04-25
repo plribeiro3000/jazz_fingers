@@ -1,5 +1,17 @@
+# frozen_string_literal: true
+
 module JazzFingers
   class Prompt
+    OBJECT_INSTANCE = /#<(.+)>/
+
+    if Pry::VERSION >= "0.13.0"
+      require_relative "prompt/pry_version_013_and_later"
+      include PryVersion013AndLater
+    else
+      require_relative "prompt/pry_version_012_and_prior"
+      include PryVersion012AndPrior
+    end
+
     def initialize(options = {})
       @colored = options.fetch(:colored)
       @separator = options.fetch(:separator)
@@ -28,48 +40,75 @@ module JazzFingers
       "\001\e[1m\002#{text}\001\e[0m\002"
     end
 
-    def separator
+    def main_separator
       red_text(@separator)
     end
 
-    def name
-      blue_text(@application_name)
+    def wait_separator
+      "*"
+    end
+
+    # Return the current Pry context
+    #
+    # When the Pry context is `"main"` or `"nil"`, use the application name from
+    # the JazzFingers config. Examples: "(my_rails_app_name)", "(jazz_fingers)".
+    #
+    # When in the context of an object instance, use the abbreviated object
+    # path. Example: "(#<Pry::Prompt>)", "(#<RSpec::...::ClassName>)"
+    #
+    # Fall back to the raw context provided by Pry.view_clip.
+    # Example: "(Pry::Prompt)"
+    def context(module_name = "main")
+      name =
+        case module_name
+        when "main", "nil"
+          @application_name
+        when OBJECT_INSTANCE
+          abbreviated_context(module_name)
+        else
+          module_name
+        end
+
+      blue_text("(#{name})")
     end
 
     def line_number(pry)
       if pry.respond_to? :input_ring
-        "[#{bold_text(pry.input_ring.size)}]"
+        bold_text(pry.input_ring.size)
       else
-        "[#{bold_text(pry.input_array.size)}]"
+        bold_text(pry.input_array.size)
       end
     end
 
-    def text(object, level)
-      level = 0 if level < 0
-      text = Pry.view_clip(object)
+    # Abbreviate the object path in the given `object_label` string so the
+    # prompt doesn't overflow. Display only the root and leaf namespaces.
+    #
+    # Examples:
+    #   In:  #<Class1::Class2::Class3::Class4::Class5>
+    #   Out: #<Class1::...::Class5>
+    #
+    #   In:  #<Class1::Class2>
+    #   Out: #<Class1::Class2>
+    #
+    #   In:  #<NoPathJustASingleLongClassName>
+    #   Out: #<NoPathJustASingleLongClassName>
+    def abbreviated_context(object_label)
+      object_path = object_label[OBJECT_INSTANCE, 1]
+      object_path_components = object_path.split("::")
+      return object_label if object_path_components.length <= 2
 
-      if text == 'main'
-        ''
-      else
-        "(#{'../' * level}#{text})"
-      end
+      root, *_, leaf = object_path_components
+      "#<#{root}::...::#{leaf}>"
     end
 
-    def main_prompt
-      lambda do |_object, _level, pry|
-        "#{RUBY_VERSION} #{name}#{line_number(pry)} #{separator} "
-      end
-    end
-
-    def block_prompt
-      lambda do |_object, level, pry|
-        spaces = '  ' * level
-        "#{RUBY_VERSION} #{name}#{line_number(pry)} * #{spaces}"
-      end
-    end
-
-    def config
-      [main_prompt, block_prompt]
+    def template(module_name, pry, separator)
+      format(
+        "%<ruby>s %<context>s[%<line>s] %<separator>s ",
+        ruby: RUBY_VERSION,
+        context: context(module_name),
+        line: line_number(pry),
+        separator: separator
+      )
     end
   end
 end
