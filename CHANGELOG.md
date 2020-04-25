@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 5.1.0.rc1 (2020-04-25)
+* Change deprecated method on pry > 0.13.0
+* Improve naming context
+
 ## 5.0.1 (2019-06-02)
 * Remove documentation for removed dependency
 * Use non deprecated method of `pry` if existent
