@@ -6,6 +6,7 @@ require 'readline'
 require 'forwardable'
 
 module JazzFingers
+  autoload :AWESOME_PRINT, 'jazz_fingers/awesome_print'
   autoload :Commands, 'jazz_fingers/commands'
   autoload :Configuration, 'jazz_fingers/configuration'
   autoload :Input, 'jazz_fingers/input'
@@ -46,7 +47,6 @@ module JazzFingers
     end
 
     def setup!
-      Pry.print = print if JazzFingers.awesome_print?
       Pry.prompt = prompt
       Pry.input = input if JazzFingers.coolline?
       Pry.config.should_load_plugins = false
@@ -63,6 +63,13 @@ module JazzFingers
       JazzFingers::Commands.constants(false).each do |constant|
         command = JazzFingers::Commands.const_get(constant)
         Pry.config.commands.import(command)
+      end
+
+      if JazzFingers.awesome_print?
+        require 'awesome_print'
+
+        AwesomePrint.defaults = JazzFingers::AWESOME_PRINT
+        Pry.print = print
       end
 
       true

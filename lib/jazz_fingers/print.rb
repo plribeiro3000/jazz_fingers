@@ -5,7 +5,7 @@ module JazzFingers
     class << self
       def config
         lambda do |_output, value, pry_object|
-          pretty = value.ai(indent: 2)
+          pretty = value.ai
           pry_object.pager.page("=> #{pretty}\n")
         end
       end
