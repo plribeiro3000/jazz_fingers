@@ -7,6 +7,7 @@ require 'forwardable'
 
 module JazzFingers
   autoload :AWESOME_PRINT, 'jazz_fingers/awesome_print'
+  autoload :CodeRay, 'jazz_fingers/coderay'
   autoload :Commands, 'jazz_fingers/commands'
   autoload :Configuration, 'jazz_fingers/configuration'
   autoload :Input, 'jazz_fingers/input'
@@ -71,6 +72,8 @@ module JazzFingers
         AwesomePrint.defaults = JazzFingers::AWESOME_PRINT
         Pry.print = print
       end
+
+      JazzFingers::CodeRay.setup!
 
       true
     end
