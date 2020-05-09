@@ -4,11 +4,12 @@ module JazzFingers
   class Prompt
     OBJECT_INSTANCE = /#<(.+)>/
 
+    autoload :PryVersion013AndLater, 'jazz_fingers/prompt/pry_version_013_and_later'
+    autoload :PryVersion012AndPrior, 'jazz_fingers/prompt/pry_version_012_and_prior'
+
     if Pry::VERSION >= "0.13.0"
-      require_relative "prompt/pry_version_013_and_later"
       include PryVersion013AndLater
     else
-      require_relative "prompt/pry_version_012_and_prior"
       include PryVersion012AndPrior
     end
 
