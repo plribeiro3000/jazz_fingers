@@ -6,6 +6,7 @@ require 'readline'
 require 'forwardable'
 
 module JazzFingers
+  autoload :Commands, 'jazz_fingers/commands'
   autoload :Configuration, 'jazz_fingers/configuration'
   autoload :Input, 'jazz_fingers/input'
   autoload :Print, 'jazz_fingers/print'
@@ -58,6 +59,11 @@ module JazzFingers
       Pry.config.ls.public_method_color = :green
       Pry.config.ls.protected_method_color = :yellow
       Pry.config.ls.private_method_color = :bright_black
+
+      JazzFingers::Commands.constants(false).each do |constant|
+        command = JazzFingers::Commands.const_get(constant)
+        Pry.config.commands.import(command)
+      end
 
       true
     end
