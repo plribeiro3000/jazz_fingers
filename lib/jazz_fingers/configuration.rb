@@ -40,7 +40,16 @@ module JazzFingers
 
     def application_name
       return underscore(@application_name) unless @application_name.nil?
-      return Rails.application.class.parent_name.underscore if defined?(Rails)
+
+      if defined?(Rails)
+        application_class = Rails.application.class
+
+        if application_class.respond_to?(:module_parent_name)
+          application_class.module_parent_name.underscore
+        else
+          application_class.parent_name.underscore
+        end
+      end
 
       "jazz_fingers"
     end
