@@ -45,9 +45,9 @@ module JazzFingers
         application_class = Rails.application.class
 
         if application_class.respond_to?(:module_parent_name)
-          application_class.module_parent_name.underscore
+          return application_class.module_parent_name.underscore
         else
-          application_class.parent_name.underscore
+          return application_class.parent_name.underscore
         end
       end
 
