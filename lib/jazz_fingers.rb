@@ -6,7 +6,7 @@ require 'readline'
 require 'forwardable'
 
 module JazzFingers
-  autoload :AWESOME_PRINT, 'jazz_fingers/awesome_print'
+  autoload :AMAZING_PRINT, 'jazz_fingers/amazing_print'
   autoload :CodeRay, 'jazz_fingers/coderay'
   autoload :Commands, 'jazz_fingers/commands'
   autoload :Configuration, 'jazz_fingers/configuration'
@@ -18,7 +18,7 @@ module JazzFingers
   class << self
     extend Forwardable
 
-    def_delegators :config, :awesome_print?, :coolline?
+    def_delegators :config, :amazing_print?, :coolline?
 
     def print
       @print ||= Print.config
@@ -66,10 +66,10 @@ module JazzFingers
         Pry.config.commands.import(command)
       end
 
-      if JazzFingers.awesome_print?
-        require 'awesome_print'
+      if JazzFingers.amazing_print?
+        require 'amazing_print'
 
-        AwesomePrint.defaults = JazzFingers::AWESOME_PRINT
+        AmazingPrint.defaults = JazzFingers::AMAZING_PRINT
         Pry.print = print
       end
 
