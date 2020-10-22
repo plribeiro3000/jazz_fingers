@@ -1,3 +1,3 @@
 module JazzFingers
-  VERSION = '5.2.2'.freeze
+  VERSION = '6.0.0-rc1'.freeze
 end
