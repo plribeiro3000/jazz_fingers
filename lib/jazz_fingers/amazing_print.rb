@@ -1,22 +1,22 @@
 module JazzFingers
-  AWESOME_PRINT = {
+  AMAZING_PRINT = {
     indent: 2,
     sort_keys: true,
     color: {
       args: :greenish,
-      array: :pale,
+      array: :whiteish,
       bigdecimal: :blue,
       class: :yellow,
       date: :greenish,
       falseclass: :red,
       fixnum: :blue,
       float: :blue,
-      hash: :pale,
+      hash: :whiteish,
       keyword: :cyan,
       method: :purpleish,
       nilclass: :red,
       string: :yellowish,
-      struct: :pale,
+      struct: :whiteish,
       symbol: :cyanish,
       time: :greenish,
       trueclass: :green,

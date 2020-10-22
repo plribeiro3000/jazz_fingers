@@ -1,6 +1,6 @@
 module JazzFingers
   class Configuration
-    attr_writer :colored_prompt, :prompt_separator, :coolline, :awesome_print,
+    attr_writer :colored_prompt, :prompt_separator, :coolline, :amazing_print,
                 :application_name
 
     # Color the prompt?
@@ -32,10 +32,10 @@ module JazzFingers
       @coolline
     end
 
-    def awesome_print?
-      return true if @awesome_print.nil?
+    def amazing_print?
+      return true if @amazing_print.nil?
 
-      @awesome_print
+      @amazing_print
     end
 
     def application_name

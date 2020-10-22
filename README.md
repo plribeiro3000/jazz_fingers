@@ -9,7 +9,7 @@ hard-working fingers!
 **jazz_fingers** is an opinionated set of console-related gems and a bit of glue:
 
 * [**Pry**][pry] for a powerful shell alternative to IRB.
-* [**Awesome Print**][awesome_print] for stylish pretty print.
+* [**Amazing Print**][amazing_print] for stylish pretty print.
   console.
 * [**Pry Coolline**][pry-coolline] for syntax highlighting as you type.
 
@@ -46,7 +46,7 @@ Some configurations can be overwritten:
 if defined?(JazzFingers)
   JazzFingers.configure do |config|
     config.colored_prompt = false
-    config.awesome_print = false
+    config.amazing_print = false
     config.coolline = false
     config.application_name = MyAwesomeProject
   end
@@ -69,7 +69,7 @@ mixed encodings.
 
 
 [pry]:                http://pry.github.com
-[awesome_print]:      https://github.com/michaeldv/awesome_print
+[amazing_print]:      https://github.com/amazing-print/amazing_print
 [hirb]:               https://github.com/cldwalker/hirb
 [pry-doc]:            https://github.com/pry/pry-doc
 [pry-coolline]:       https://github.com/pry/pry-coolline
