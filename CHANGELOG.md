@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 6.2.0 (2021-04-19)
+* Upgrade [pry-byebug][pry-byebug] to 3.9
+
 ## 6.1.0 (2021-04-19)
 * Update [amazing_print][amazing_print] to v1.3.0
 
