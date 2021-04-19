@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 6.1.0 (2021-04-19)
+* Update [amazing_print][amazing_print] to v1.3.0
+
+## 6.0.0.pre.rc1 (2020-10-22)
+* Switched [awesome_print][awesome_print] with [amazing_print][amazing_print]
+
+## 5.2.0 (2020-07-22)
+* Fixed application name
+
+## 5.2.1 (2020-07-16)
+* Fix Rails deprecation
+
+## 5.2.0 (2020-05-09)
+* Added Pry custom commands
+* Customize AwesomePrint configuration
+* Customize CodeRay colors
+
 ## 5.1.0.rc1 (2020-04-25)
 * Change deprecated method on pry > 0.13.0
 * Improve naming context
@@ -185,6 +202,7 @@
 
 [pry]:                http://pry.github.com
 [awesome_print]:      https://github.com/michaeldv/awesome_print
+[amazing_print]:      https://github.com/amazing-print/amazing_print
 [pry-doc]:            https://github.com/pry/pry-doc
 [pry-git]:            https://github.com/pry/pry-git
 [pry-nav]:            https://github.com/nixme/pry-nav
