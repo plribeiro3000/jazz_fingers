@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+* Replace `readline` with `reline` for Ruby 4.0 compatibility
+* Remove `pry-byebug` runtime dependency and debugger aliases
+* Simplify `colored_prompt` and `prompt_separator` defaults
+
 ## 6.3.0 (2025-10-01)
 * Upgrade [amazing-print][amazing-print] to 1.8
 * Upgrade [pry][pry] to 0.15
