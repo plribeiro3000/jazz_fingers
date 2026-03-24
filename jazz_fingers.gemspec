@@ -22,7 +22,6 @@ Gem::Specification.new do |gem|
   gem.required_ruby_version = '>= 2.0'
   gem.add_runtime_dependency 'amazing_print', '~> 1.8'
   gem.add_runtime_dependency 'pry', '~> 0.15'
-  gem.add_runtime_dependency 'pry-byebug', '~> 3.11'
   gem.add_runtime_dependency 'pry-coolline', '~> 0.2'
 
   gem.add_development_dependency 'rubocop'
