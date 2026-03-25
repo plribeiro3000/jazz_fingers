@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 7.1.0 (2026-03-25)
 
 ### Fixed
 * Pager on Ruby 4.0
