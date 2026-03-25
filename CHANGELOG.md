@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+### Fixed
+* Pager on Ruby 4.0
+
 ## 7.0.0 (2026-03-24)
 * Replace `readline` with `reline` for Ruby 4.0 compatibility
 * Remove `pry-byebug` runtime dependency and debugger aliases

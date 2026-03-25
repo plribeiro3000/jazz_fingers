@@ -1,8 +1,17 @@
 ENV['HOME'] ||= '/dev/null'
 
 require 'pry'
-require 'reline'
 require 'forwardable'
+
+# Pry's SimplePager hardcodes the Readline constant. Ruby 4.0 removed
+# the readline stdlib, so we mirror Pry's own load_readline fallback
+# and shim the constant when only Reline is available.
+begin
+  require 'readline'
+rescue LoadError
+  require 'reline'
+  Readline = Reline unless defined?(Readline)
+end
 
 module JazzFingers
   autoload :AMAZING_PRINT, 'jazz_fingers/amazing_print'
